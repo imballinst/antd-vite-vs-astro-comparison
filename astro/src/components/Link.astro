@@ -1,0 +1,15 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<'a'> {}
+
+const { href, ...props } = Astro.props;
+let baseUrl = import.meta.env.BASE_PATH || '/'
+if (baseUrl.endsWith('/')) {
+  baseUrl = baseUrl.slice(0, -1)
+}
+---
+
+<a href={`${baseUrl}${href}`} {...props}>
+  <slot />
+</a>
