@@ -1,0 +1,12 @@
+---
+import { TestForm } from '../components/TestForm'
+import Renderer from '../components/Renderer.astro'
+---
+
+<main class="flex justify-center items-center h-screen">
+	<div class="w-[300px] border rounded p-4">
+		<Renderer component={TestForm}>
+			<TestForm client:visible />
+		</Renderer>
+	</div>
+</main>

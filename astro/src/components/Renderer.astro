@@ -1,0 +1,13 @@
+---
+import {extractStyles } from './extractStyles'
+
+interface Props {
+	component: any
+}
+
+const { component: Component } = Astro.props;
+const { style} = extractStyles(Component())
+---
+
+<Fragment set:html={style} ></Fragment>
+<slot />
