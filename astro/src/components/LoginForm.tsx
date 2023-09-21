@@ -1,6 +1,6 @@
 import { Form, Input, Button } from "antd";
 
-export function TestForm() {
+export function LoginForm() {
   return (
     <Form onFinish={(values) => {
 			console.info(values)
@@ -13,7 +13,7 @@ export function TestForm() {
 				<Input.Password />
 			</Form.Item>
 	
-			<Button htmlType="submit">Submit</Button>
+			<Button htmlType="submit">Log in</Button>
 		</Form>
   )
 }
