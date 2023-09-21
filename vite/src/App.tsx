@@ -4,16 +4,18 @@ import './index.css'
 
 function TestForm() {
   return (
-    <Form>
-			<Form.Item label="Username">
+    <Form onFinish={(values) => {
+			console.info(values)
+		}}>
+			<Form.Item name="username" label="Username" rules={[ { required: true }]}>
 				<Input />
 			</Form.Item>
 	
-			<Form.Item label="Password">
+			<Form.Item name="password" label="Password" rules={[ { required: true }]}>
 				<Input.Password />
 			</Form.Item>
 	
-			<Button>Submit</Button>
+			<Button htmlType="submit">Submit</Button>
 		</Form>
   )
 }
