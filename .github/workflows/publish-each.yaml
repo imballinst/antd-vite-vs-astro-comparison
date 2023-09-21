@@ -1,0 +1,41 @@
+name: publish-each
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-each:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+        with:
+          access_token: ${{ github.token }}
+      - uses: actions/checkout@v3
+      - name: prepare publish astro
+        working-directory: ./astro
+        env:
+          BASE_PATH: astro
+        run: yarn && yarn build
+      - name: prepare publish vite
+        working-directory: ./vite
+        env:
+          BASE_PATH: vite
+        run: yarn && yarn build
+      - name: prepare publish
+        working-directory: ./vite
+        run: |
+          mkdir output
+          mv astro/dist ./output/astro
+          mv vite/dist ./output/vite
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          # Publish only with the latest commit.
+          # Source: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-force-orphan-force_orphan.
+          force_orphan: true
