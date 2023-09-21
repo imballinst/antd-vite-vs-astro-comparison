@@ -22,7 +22,7 @@ jobs:
       - name: prepare publish vite
         working-directory: ./vite
         env:
-          BASE_PATH: /antd-vite-vs-astro-comparison/vite
+          VITE_BASE_PATH: /antd-vite-vs-astro-comparison/vite
         run: yarn && yarn build
       - name: prepare publish
         working-directory: .
