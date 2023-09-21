@@ -17,12 +17,12 @@ jobs:
       - name: prepare publish astro
         working-directory: ./astro
         env:
-          BASE_PATH: antd-vite-vs-astro-comparison/astro
+          BASE_PATH: /antd-vite-vs-astro-comparison/astro
         run: yarn && yarn build
       - name: prepare publish vite
         working-directory: ./vite
         env:
-          BASE_PATH: antd-vite-vs-astro-comparison/vite
+          BASE_PATH: /antd-vite-vs-astro-comparison/vite
         run: yarn && yarn build
       - name: prepare publish
         working-directory: .

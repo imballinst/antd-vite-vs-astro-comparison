@@ -1,7 +1,6 @@
 ---
 import { Divider } from 'antd';
 import { LoginForm } from '../components/LoginForm'
-import Link from '../components/Link.astro';
 import { Fragment } from 'react';
 import { extractStylesAlt } from '../components/extractStyles';
 
@@ -18,6 +17,6 @@ const { style } = extractStylesAlt([
 		<LoginForm client:visible />
 		<Divider />
 
-		<Link href="/reset-password">Reset password</Link>
+		<a href="/reset-password">Reset password</a>
 	</div>
 </main>
