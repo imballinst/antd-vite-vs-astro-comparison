@@ -27,7 +27,7 @@ jobs:
       - name: prepare publish
         working-directory: .
         run: |
-          mkdir output
+          cp -r gh-pages output
           mv astro/dist ./output/astro
           mv vite/dist ./output/vite
       - name: Deploy to gh-pages
