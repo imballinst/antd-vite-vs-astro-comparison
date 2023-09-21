@@ -25,7 +25,7 @@ jobs:
           BASE_PATH: vite
         run: yarn && yarn build
       - name: prepare publish
-        working-directory: ./vite
+        working-directory: .
         run: |
           mkdir output
           mv astro/dist ./output/astro
